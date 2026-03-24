@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino Pro | Planilha Personalizada & Vídeos</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-ID_DO_GOOGLE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-ID_DO_GOOGLE');
+
+      // Função de Conversão para o Botão
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-ID_DO_GOOGLE/LABEL_DE_CONVERSAO',
+            'value': 25.0,
+            'currency': 'BRL',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-hero { 
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1350&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        .text-glow { text-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
+    </style>
+</head>
+<body class="bg-zinc-950 font-sans text-zinc-100 antialiased">
+
+    <header class="bg-hero py-20 md:py-32 px-6 text-center border-b-4 border-yellow-500">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-yellow-500 text-black text-[10px] md:text-xs font-black py-1 px-4 rounded-md uppercase tracking-widest italic">
+                Profissional Regulamentado (CREF)
+            </span>
+            
+            <h1 class="text-5xl md:text-8xl font-black mt-6 leading-[0.85] tracking-tighter italic uppercase text-white text-glow">
+                TREINO PRO <br><span class="text-yellow-500 underline decoration-white">R$ 25,00</span>
+            </h1>
+            
+            <p class="mt-8 text-lg md:text-2xl text-zinc-300 font-medium max-w-2xl mx-auto">
+                Sua planilha personalizada via anamnese, com **vídeos explicativos** de cada exercício. Direto ao ponto.
+            </p>
+            
+            <div class="mt-12">
+                <a href="https://wa.me/5521987708652?text=Olá!%20Vi%20seu%20anúncio%20e%20quero%20minha%20planilha%20personalizada%20por%20R$%2025" 
+                   onclick="return gtag_report_conversion('https://wa.me/5521987708652?text=Olá!%20Vi%20seu%20anúncio%20e%20quero%20minha%20planilha%20personalizada%20por%20R$%2025');"
+                   target="_blank"
+                   class="bg-green-600 hover:bg-green-500 hover:scale-105 transform transition-all text-white text-2xl md:text-3xl font-black py-6 px-10 md:px-16 rounded-2xl shadow-[0_0_40px_rgba(22,163,74,0.4)] inline-block uppercase italic">
+                    GARANTIR MEU TREINO
+                </a>
+                
+                <div class="mt-8 flex flex-wrap justify-center gap-4 md:gap-8 text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">
+                    <span class="flex items-center gap-2 italic">✓ Vídeos Curtos</span>
+                    <span class="flex items-center gap-2 italic">✓ Sem Mensalidade</span>
+                    <span class="flex items-center gap-2 italic">✓ Foco em Resultados</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 px-6 bg-zinc-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-center text-3xl md:text-4xl font-black mb-16 uppercase italic text-white">
+                O que você recebe por <span class="text-yellow-500">R$ 25:</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-yellow-500 transition-hover hover:bg-zinc-700">
+                    <div class="text-4xl mb-4">🎥</div>
+                    <h3 class="text-xl font-bold mb-2 uppercase italic text-yellow-500">Execução Perfeita</h3>
+                    <p class="text-zinc-400 leading-relaxed">Chega de dúvida. Cada exercício na planilha possui um link direto para um vídeo explicativo curto. Sem enrolação, sem perda de tempo.</p>
+                </div>
+
+                <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-yellow-500 transition-hover hover:bg-zinc-700">
+                    <div class="text-4xl mb-4">📋</div>
+                    <h3 class="text-xl font-bold mb-2 uppercase italic text-yellow-500">Anamnese Individual</h3>
+                    <p class="text-zinc-400 leading-relaxed">Após o contato, você preenche seu perfil. Montamos sua ficha de acordo com seu objetivo (Massa ou Definição) e onde você treina.</p>
+                </div>
+
+                <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-yellow-500 transition-hover hover:bg-zinc-700">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2 uppercase italic text-yellow-500">Entrega Ágil</h3>
+                    <p class="text-zinc-400 leading-relaxed">Processo simplificado via WhatsApp. Pagamento único, sem letras miúdas ou renovações automáticas.</p>
+                </div>
+
+                <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-yellow-500 transition-hover hover:bg-zinc-700">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-2 uppercase italic text-yellow-500">Segurança Técnica</h3>
+                    <p class="text-zinc-400 leading-relaxed">Treino estruturado por um profissional de Educação Física regulamentado. Ciência aplicada à sua evolução física.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-20 px-6 border-t border-zinc-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-yellow-500 font-bold text-xs tracking-[0.4em] mb-4 uppercase">Autoridade Técnica</p>
+            <h3 class="text-2xl font-black italic uppercase text-white mb-4 leading-none">Profissional de Educação Física</h3>
+            <div class="inline-block bg-zinc-900 border border-zinc-700 px-10 py-4 rounded-full text-xs font-black mb-10 shadow-xl">
+                CREF ATIVO & REGULARIZADO
+            </div>
+            
+            <p class="text-zinc-600 text-[10px] md:text-xs uppercase tracking-[0.2em] leading-relaxed">
+                &copy; 2026 Plataforma de Treinos Especializados. <br>
+                Consultoria Esportiva | Rio de Janeiro - RJ <br>
+                <span class="opacity-50 font-normal mt-4 block italic">Importante: Consulte um médico antes de iniciar qualquer atividade física intensiva.</span>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

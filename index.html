@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treino Pro | Planilha Personalizada & Vídeos</title>
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-ID_DO_GOOGLE"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18020498759"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-ID_DO_GOOGLE');
 
-      // Função de Conversão para o Botão
+      gtag('config', 'AW-18020498759');
+
+      // Função de Conversão para o Botão do WhatsApp
       function gtag_report_conversion(url) {
         var callback = function () {
           if (typeof(url) != 'undefined') {
@@ -20,7 +21,7 @@
           }
         };
         gtag('event', 'conversion', {
-            'send_to': 'AW-ID_DO_GOOGLE/LABEL_DE_CONVERSAO',
+            'send_to': 'AW-18020498759/CONVERSION_LABEL', // <-- Felipe, substitua CONVERSION_LABEL pelo código que o Google vai te dar na próxima tela
             'value': 25.0,
             'currency': 'BRL',
             'event_callback': callback

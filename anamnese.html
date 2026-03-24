@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamnese Oficial | Felipe Ferreira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #09090b; }
+        .input-field { 
+            background-color: #18181b; 
+            border: 1px solid #27272a; 
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 4px;
+        }
+        .input-field:focus { border-color: #eab308; outline: none; }
+    </style>
+</head>
+<body class="text-zinc-100 p-6">
+
+    <div class="max-w-2xl mx-auto bg-zinc-900/50 p-8 rounded-3xl border border-zinc-800 shadow-2xl">
+        <header class="text-center mb-10">
+            <span class="text-yellow-500 font-black text-xs uppercase tracking-widest italic">Etapa Final</span>
+            <h1 class="text-3xl font-black italic uppercase mt-2">Sua Ficha de Treino</h1>
+            <p class="text-zinc-400 text-sm mt-2">Responda rápido para eu começar sua periodização.</p>
+        </header>
+
+        <form id="anamneseForm" class="space-y-6">
+            <div>
+                <label class="text-xs font-bold uppercase text-zinc-500">Seu Nome Completo</label>
+                <input type="text" id="nome" required class="input-field" placeholder="Ex: Felipe Cordeiro">
+            </div>
+
+            <div>
+                <label class="text-xs font-bold uppercase text-zinc-500">Qual seu objetivo principal?</label>
+                <select id="objetivo" class="input-field">
+                    <option value="Hipertrofia (Ganho de Massa)">Hipertrofia (Ganho de Massa)</option>
+                    <option value="Emagrecimento / Definição">Emagrecimento / Definição</option>
+                    <option value="Condicionamento Físico">Condicionamento Físico / Saúde</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-xs font-bold uppercase text-zinc-500">Nível de experiência</label>
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="nivel" value="Iniciante" class="hidden peer" checked>
+                        <div class="p-3 text-center rounded-lg border border-zinc-800 bg-zinc-800 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 transition-all text-sm font-bold">INICIANTE</div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="nivel" value="Intermediário/Avançado" class="hidden peer">
+                        <div class="p-3 text-center rounded-lg border border-zinc-800 bg-zinc-800 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 transition-all text-sm font-bold">AVANÇADO</div>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label class="text-xs font-bold uppercase text-zinc-500">Onde você vai treinar?</label>
+                <select id="local" class="input-field">
+                    <option value="Academia Completa">Academia Completa</option>
+                    <option value="Em Casa (Sem Equipamento)">Em Casa (Sem Equipamento)</option>
+                    <option value="Prédio / Parque (Equipamento Limitado)">Prédio / Parque</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-xs font-bold uppercase text-zinc-500">Quantos dias por semana?</label>
+                <input type="number" id="dias" min="1" max="7" class="input-field" placeholder="Ex: 4">
+            </div>
+
+            <div>
+                <label class="text-xs font-bold uppercase text-zinc-500">Possui alguma dor ou lesão?</label>
+                <textarea id="lesao" class="input-field" rows="3" placeholder="Ex: Dor no joelho direito, hérnia de disco..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black py-4 rounded-xl uppercase italic transition-all shadow-lg shadow-yellow-500/20">
+                Enviar para o Personal 🚀
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('anamneseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const objetivo = document.getElementById('objetivo').value;
+            const nivel = document.querySelector('input[name="nivel"]:checked').value;
+            const local = document.getElementById('local').value;
+            const dias = document.getElementById('dias').value;
+            const lesao = document.getElementById('lesao').value || "Nenhuma";
+
+            const mensagem = `*NOVA ANAMNESE - TREINO PRO*%0A%0A` +
+                             `*Nome:* ${nome}%0A` +
+                             `*Objetivo:* ${objetivo}%0A` +
+                             `*Nível:* ${nivel}%0A` +
+                             `*Local:* ${local}%0A` +
+                             `*Frequência:* ${dias}x na semana%0A` +
+                             `*Lesões/Dores:* ${lesao}`;
+
+            const fone = "5521987708652";
+            window.location.href = `https://wa.me/${fone}?text=${mensagem}`;
+        });
+    </script>
+</body>
+</html>

@@ -19,7 +19,7 @@
           }
         };
         gtag('event', 'conversion', {
-            'send_to': 'AW-18020498759/CONVERSION_LABEL', // Lembre-se de trocar o CONVERSION_LABEL depois
+            'send_to': 'AW-18020498759/CONVERSION_LABEL', 
             'value': 80.0,
             'currency': 'BRL',
             'event_callback': callback
@@ -36,6 +36,8 @@
             background-position: center; 
         }
         .text-glow { text-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-zinc-950 font-sans text-zinc-100 antialiased">
@@ -83,39 +85,58 @@
                     <h3 class="text-xl font-bold mb-2 uppercase italic text-orange-500">Execução Perfeita</h3>
                     <p class="text-zinc-400 leading-relaxed">Cada exercício na sua planilha tem um link para um vídeo curto mostrando a forma correta. Acabe com a insegurança na academia.</p>
                 </div>
-
                 <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-orange-500 hover:bg-zinc-700 transition-all">
                     <div class="text-4xl mb-4">📋</div>
                     <h3 class="text-xl font-bold mb-2 uppercase italic text-orange-500">Planejamento Único</h3>
-                    <p class="text-zinc-400 leading-relaxed">Após o pagamento, você preenche uma anamnese detalhada. Eu monto seu treino focado no seu objetivo: hipertrofia ou definição.</p>
-                </div>
-
-                <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-orange-500 hover:bg-zinc-700 transition-all">
-                    <div class="text-4xl mb-4">📲</div>
-                    <h3 class="text-xl font-bold mb-2 uppercase italic text-orange-500">Suporte Comigo</h3>
-                    <p class="text-zinc-400 leading-relaxed">Dúvidas sobre o treino? Você fala direto comigo no WhatsApp. Sem robôs, atendimento humano de quem entende de treino.</p>
-                </div>
-
-                <div class="bg-zinc-800 p-8 rounded-3xl border-b-4 border-orange-500 hover:bg-zinc-700 transition-all">
-                    <div class="text-4xl mb-4">🛡️</div>
-                    <h3 class="text-xl font-bold mb-2 uppercase italic text-orange-500">Segurança Técnica</h3>
-                    <p class="text-zinc-400 leading-relaxed">Treino estruturado por quem é formado e tem CREF regularizado. Menos risco de lesão, mais resultados estéticos.</p>
+                    <p class="text-zinc-400 leading-relaxed">Após o contato, você preenche uma anamnese. Eu monto seu treino focado no seu objetivo: hipertrofia ou definição.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black py-20 px-6 border-t border-zinc-800">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-2xl font-black italic uppercase text-white mb-4 leading-none">Felipe Cordeiro - Treinador</h3>
-            <div class="inline-block bg-zinc-900 border border-zinc-700 px-10 py-3 rounded-full text-[10px] font-black mb-10 shadow-xl tracking-widest text-orange-500">
+    <section class="py-24 bg-zinc-950 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-black mb-12 uppercase italic text-center">
+                COMO FUNCIONA O <span class="text-orange-500 text-glow">MÉTODO:</span>
+            </h2>
+            
+            <div class="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scrollbar-hide focus:outline-none">
+                <div class="min-w-[85%] md:min-w-[30%] snap-center bg-zinc-900 p-8 rounded-3xl border-l-4 border-orange-600 shadow-xl">
+                    <span class="text-5xl font-black text-zinc-800 block mb-4 italic">01</span>
+                    <h3 class="text-xl font-black uppercase italic mb-3 text-white">Chama no Zap</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Clique no botão e iniciamos seu atendimento. Você tira suas dúvidas diretamente comigo.</p>
+                </div>
+                <div class="min-w-[85%] md:min-w-[30%] snap-center bg-zinc-900 p-8 rounded-3xl border-l-4 border-orange-600 shadow-xl">
+                    <span class="text-5xl font-black text-zinc-800 block mb-4 italic">02</span>
+                    <h3 class="text-xl font-black uppercase italic mb-3 text-white">Anamnese</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Você preenche seu perfil detalhado: rotina, lesões, material e objetivos reais.</p>
+                </div>
+                <div class="min-w-[85%] md:min-w-[30%] snap-center bg-zinc-900 p-8 rounded-3xl border-l-4 border-orange-600 shadow-xl">
+                    <span class="text-5xl font-black text-zinc-800 block mb-4 italic">03</span>
+                    <h3 class="text-xl font-black uppercase italic mb-3 text-white">Montagem</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Eu estruturo sua planilha focando na ciência do treino para acelerar seus resultados.</p>
+                </div>
+                <div class="min-w-[85%] md:min-w-[30%] snap-center bg-zinc-900 p-8 rounded-3xl border-l-4 border-orange-600 shadow-xl">
+                    <span class="text-5xl font-black text-zinc-800 block mb-4 italic">04</span>
+                    <h3 class="text-xl font-black uppercase italic mb-3 text-white">Entrega</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Receba sua planilha com vídeos. Comece a treinar e tenha suporte direto via WhatsApp.</p>
+                </div>
+            </div>
+            <p class="text-center text-zinc-600 text-[10px] font-bold uppercase tracking-widest mt-4 md:hidden animate-pulse">
+                ← Deslize para ver os passos →
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-black py-20 px-6 border-t border-zinc-800 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-2xl font-black italic uppercase text-white mb-4 leading-none text-glow">Felipe Cordeiro - Treinador</h3>
+            <div class="inline-block bg-zinc-900 border border-zinc-700 px-10 py-3 rounded-full text-[10px] font-black mb-10 shadow-xl tracking-widest text-orange-500 uppercase">
                 CREF ATIVO & REGULARIZADO
             </div>
-            
             <p class="text-zinc-600 text-[10px] uppercase tracking-[0.2em] leading-relaxed">
-                © 2026 Rio de Janeiro - RJ <br>
-                Consultoria Esportiva Online <br>
-                <span class="opacity-50 font-normal mt-4 block italic uppercase">Consulte um médico antes de iniciar atividades físicas.</span>
+                © 2026 Rio de Janeiro - RJ | Consultoria Online <br>
+                <span class="opacity-50 font-normal mt-4 block italic lowercase">Consulte um médico antes de iniciar atividades físicas.</span>
             </p>
         </div>
     </footer>

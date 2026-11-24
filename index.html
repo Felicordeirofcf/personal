@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoria Felipe Cordeiro | Treino + Vídeos</title>
-    
-    <!-- Google Fonts: Montserrat (Premium & Athletic Look) -->
+    <title>Consultoria Online Felipe Ferreira | R$ 80/mês com acompanhamento diário</title>
+    <meta name="description" content="Consultoria online de treino por R$ 80/mês: série personalizada nova todo mês, vídeos de execução e acompanhamento diário pelo WhatsApp com profissional de Educação Física (CREF).">
+    <meta name="theme-color" content="#09090b">
+
+    <!-- Prévia ao compartilhar no WhatsApp / Instagram -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://felipepersonal.com/">
+    <meta property="og:title" content="Consultoria Online · R$ 80/mês com acompanhamento diário">
+    <meta property="og:description" content="Série personalizada nova todo mês + acompanhamento diário no WhatsApp. Sem fidelidade.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏋️</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Google Tag Manager / Ads -->
+    <script>
+      // ======= CONFIGURAÇÃO — edite só aqui =======
+      var CONFIG = {
+        whatsapp: '5521987708652',
+        // Rótulo da conversão do Google Ads (Google Ads > Metas > Conversões).
+        // Formato: 'AW-18020498759/AbCdEfGhIjk'. Enquanto vazio, o clique só abre o WhatsApp.
+        adsConversao: '',
+        valor: 80.0
+      };
+    </script>
+
+    <!-- Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18020498759"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -18,201 +39,277 @@
       gtag('js', new Date());
       gtag('config', 'AW-18020498759');
 
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
+      // Abre o WhatsApp SEMPRE, mesmo se o Google Ads estiver bloqueado ou lento.
+      function abrirWhats(mensagem) {
+        var url = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(mensagem);
+        var foi = false;
+        function ir() { if (!foi) { foi = true; window.location.href = url; } }
+        try {
+          if (CONFIG.adsConversao) {
+            gtag('event', 'conversion', {
+              send_to: CONFIG.adsConversao,
+              value: CONFIG.valor,
+              currency: 'BRL',
+              event_callback: ir
+            });
           }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18020498759/CONVERSION_LABEL', 
-            'value': 80.0,
-            'currency': 'BRL',
-            'event_callback': callback
-        });
+          gtag('event', 'generate_lead', { value: CONFIG.valor, currency: 'BRL' });
+        } catch (e) {}
+        setTimeout(ir, CONFIG.adsConversao ? 800 : 0);
         return false;
       }
     </script>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
                     backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 1)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop')",
+                        'hero-pattern': "linear-gradient(to bottom, rgba(9, 9, 11, 0.82), rgba(9, 9, 11, 1)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop')",
                     }
                 }
             }
         }
     </script>
-    
+
     <style>
         .glass-card {
             background: rgba(39, 39, 42, 0.4);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
         .text-gradient {
             background: linear-gradient(to right, #fb923c, #ea580c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hide-scroll::-webkit-scrollbar { display: none; }
-        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .num-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.15); color: transparent; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] .seta { transform: rotate(45deg); }
     </style>
 </head>
 <body class="bg-zinc-950 font-sans text-zinc-100 antialiased selection:bg-orange-500 selection:text-white">
 
-    <!-- HERO SECTION -->
-    <header class="bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed min-h-screen flex items-center justify-center py-20 px-6 text-center border-b border-white/5 relative overflow-hidden">
-        
-        <!-- Subtle Glow Background Effect -->
+    <!-- HERO -->
+    <header class="bg-hero-pattern bg-cover bg-center bg-no-repeat md:bg-fixed min-h-screen flex items-center justify-center py-20 px-6 text-center border-b border-white/5 relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-4xl mx-auto relative z-10">
-            <div class="inline-flex items-center gap-2 bg-zinc-900/80 border border-orange-500/30 text-orange-400 text-xs font-bold py-1.5 px-4 rounded-full uppercase tracking-widest mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(234,88,12,0.2)]">
+            <div class="inline-flex items-center gap-2 bg-zinc-900/80 border border-orange-500/30 text-orange-400 text-xs font-bold py-1.5 px-4 rounded-full uppercase tracking-widest mb-8 backdrop-blur-sm">
                 <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                Profissional Regulamentado (CREF)
+                Consultoria online · Acompanhamento diário
             </div>
-            
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tighter uppercase italic mb-4">
-                Chega de <br>
-                <span class="text-white">Treinar Errado</span>
+
+            <h1 class="text-5xl md:text-7xl font-black leading-[1.05] tracking-tighter uppercase italic mb-6">
+                Seu treino montado<br>
+                <span class="text-gradient">e acompanhado</span><br>
+                todo dia
             </h1>
-            
-            <div class="inline-block bg-orange-600 text-white text-3xl md:text-5xl font-black italic px-6 py-2 rounded-lg transform -rotate-2 shadow-xl mb-8">
-                POR R$ 80,00
-            </div>
-            
-            <p class="mt-4 text-lg md:text-xl text-zinc-300 font-medium max-w-2xl mx-auto leading-relaxed">
-                Sua planilha 100% personalizada via anamnese, com <strong class="text-white">vídeos explicativos</strong> de cada exercício direto no seu celular.
+
+            <p class="text-lg md:text-xl text-zinc-300 font-medium max-w-2xl mx-auto leading-relaxed">
+                Série personalizada <strong class="text-white">nova todo mês</strong>, vídeos de execução e
+                <strong class="text-white">eu acompanhando você diariamente</strong> pelo WhatsApp.
             </p>
-            
-            <div class="mt-12 flex flex-col items-center">
-                <a href="https://wa.me/5521987708652?text=Felipe, quero parar de treinar errado e garantir minha consultoria por R$ 80!" 
-                   onclick="return gtag_report_conversion('https://wa.me/5521987708652?text=Felipe, quero parar de treinar errado e garantir minha consultoria por R$ 80!');"
-                   target="_blank"
-                   class="group relative inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-zinc-950 text-xl md:text-2xl font-black py-5 px-10 md:px-16 rounded-2xl shadow-[0_0_40px_rgba(34,197,94,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(34,197,94,0.6)] uppercase italic overflow-hidden">
-                    <span class="relative z-10 flex items-center gap-2">
-                        🚀 Garantir Meu Treino
-                    </span>
-                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+
+            <div class="mt-10 inline-flex flex-col items-center">
+                <div class="bg-orange-600 text-white font-black italic px-6 py-2 rounded-lg -rotate-2 shadow-xl">
+                    <span class="text-4xl md:text-6xl">R$ 80</span><span class="text-xl md:text-2xl">/mês</span>
+                </div>
+                <span class="mt-3 text-sm text-zinc-400 font-semibold">menos de <strong class="text-white">R$ 2,70 por dia</strong></span>
+            </div>
+
+            <div class="mt-10 flex flex-col items-center">
+                <a href="#" onclick="return abrirWhats('Oi Felipe! Quero começar a consultoria mensal de R$ 80 com acompanhamento diário.');"
+                   class="group relative inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-zinc-950 text-xl md:text-2xl font-black py-5 px-10 md:px-16 rounded-2xl shadow-[0_0_40px_rgba(34,197,94,0.4)] transition-all duration-300 hover:scale-105 uppercase italic">
+                    Quero começar agora
                 </a>
-                
-                <div class="mt-8 flex flex-wrap justify-center gap-4 md:gap-8 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
-                    <span class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        Vídeos de Execução
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        Sem Mensalidade Automática
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        Suporte via WhatsApp
-                    </span>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                    <span class="flex items-center gap-2"><span class="text-orange-500">✓</span> Série nova todo mês</span>
+                    <span class="flex items-center gap-2"><span class="text-orange-500">✓</span> Acompanhamento diário</span>
+                    <span class="flex items-center gap-2"><span class="text-orange-500">✓</span> Sem fidelidade</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- BENEFITS SECTION -->
+    <!-- O QUE ESTÁ INCLUSO -->
     <section class="py-24 px-6 bg-zinc-950">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-center text-3xl md:text-5xl font-black mb-16 uppercase italic">
-                O que você recebe por <span class="text-gradient">R$ 80</span>
+            <h2 class="text-center text-3xl md:text-5xl font-black mb-4 uppercase italic">
+                O que você tem por <span class="text-gradient">R$ 80/mês</span>
             </h2>
-            
-            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 border border-orange-500/20 group-hover:scale-110 transition-transform">
-                        <span class="text-3xl">🎥</span>
-                    </div>
-                    <h3 class="text-2xl font-black mb-3 uppercase italic text-white">Execução Perfeita</h3>
-                    <p class="text-zinc-400 leading-relaxed font-medium">Cada exercício na sua planilha tem um link para um vídeo curto mostrando a forma correta. Acabe com a insegurança na academia.</p>
+            <p class="text-center text-zinc-400 mb-16 max-w-2xl mx-auto">Não é uma planilha pronta que você recebe e fica sozinho. É acompanhamento de verdade, todo dia.</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">💬</div>
+                    <h3 class="text-xl font-black mb-2 uppercase italic text-white">Acompanhamento diário</h3>
+                    <p class="text-zinc-400 leading-relaxed">Você me manda o check-in do treino do dia e eu respondo: ajusto carga, corrijo execução pelo vídeo e tiro suas dúvidas. Você não fica sozinho.</p>
                 </div>
-                
-                <!-- Card 2 -->
-                <div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 border border-orange-500/20 group-hover:scale-110 transition-transform">
-                        <span class="text-3xl">📋</span>
-                    </div>
-                    <h3 class="text-2xl font-black mb-3 uppercase italic text-white">Planejamento Único</h3>
-                    <p class="text-zinc-400 leading-relaxed font-medium">Após o contato, você preenche uma anamnese completa. Eu monto seu treino focado no seu objetivo real: hipertrofia ou definição.</p>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">📋</div>
+                    <h3 class="text-xl font-black mb-2 uppercase italic text-white">Série nova todo mês</h3>
+                    <p class="text-zinc-400 leading-relaxed">Eu monto pessoalmente sua série a partir da sua anamnese e troco todo mês, de acordo com sua evolução, para você não estagnar.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">🎥</div>
+                    <h3 class="text-xl font-black mb-2 uppercase italic text-white">Vídeos de execução</h3>
+                    <p class="text-zinc-400 leading-relaxed">Cada exercício vem com vídeo curto mostrando a forma correta. Acabou a insegurança na academia.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">📈</div>
+                    <h3 class="text-xl font-black mb-2 uppercase italic text-white">Reavaliação mensal</h3>
+                    <p class="text-zinc-400 leading-relaxed">No fim de cada mês revisamos peso, medidas, fotos e cargas. O próximo mês é planejado em cima do resultado real.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="py-24 bg-zinc-900 border-t border-zinc-800 overflow-hidden relative">
+    <!-- COMO FUNCIONA -->
+    <section class="py-24 bg-zinc-900 border-t border-zinc-800">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-black mb-16 uppercase italic text-center">
-                Como funciona o <span class="text-gradient">Método</span>
+                Como <span class="text-gradient">funciona</span>
             </h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Step 1 -->
-                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800 hover:border-orange-500/50 transition-colors">
-                    <span class="text-6xl font-black text-transparent text-stroke block mb-4 italic" style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">01</span>
-                    <h3 class="text-xl font-bold uppercase italic mb-3 text-white">Chama no Zap</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Clique no botão e iniciamos seu atendimento. Tire suas dúvidas diretamente comigo.</p>
+                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800">
+                    <span class="num-stroke text-6xl font-black block mb-4 italic">01</span>
+                    <h3 class="text-lg font-bold uppercase italic mb-2 text-white">Chama no Zap</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Tire suas dúvidas comigo e garanta sua vaga pagando o primeiro mês no Pix.</p>
                 </div>
-                <!-- Step 2 -->
-                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800 hover:border-orange-500/50 transition-colors">
-                    <span class="text-6xl font-black text-transparent text-stroke block mb-4 italic" style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">02</span>
-                    <h3 class="text-xl font-bold uppercase italic mb-3 text-white">Anamnese</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Você preenche seu perfil detalhado: rotina, histórico, material disponível e metas.</p>
+                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800">
+                    <span class="num-stroke text-6xl font-black block mb-4 italic">02</span>
+                    <h3 class="text-lg font-bold uppercase italic mb-2 text-white">Anamnese</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Você preenche sua ficha: objetivo, rotina, histórico de saúde, lesões e onde vai treinar.</p>
                 </div>
-                <!-- Step 3 -->
-                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800 hover:border-orange-500/50 transition-colors">
-                    <span class="text-6xl font-black text-transparent text-stroke block mb-4 italic" style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">03</span>
-                    <h3 class="text-xl font-bold uppercase italic mb-3 text-white">Montagem</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Estruturo sua planilha baseada em biomecânica e na ciência do treinamento.</p>
+                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800">
+                    <span class="num-stroke text-6xl font-black block mb-4 italic">03</span>
+                    <h3 class="text-lg font-bold uppercase italic mb-2 text-white">Sua série</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Eu monto sua série do mês com os vídeos de cada exercício e mando direto no seu celular.</p>
                 </div>
-                <!-- Step 4 -->
-                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-zinc-800 hover:border-green-500/50 transition-colors relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-20 h-20 bg-green-500/10 blur-2xl rounded-full"></div>
-                    <span class="text-6xl font-black text-transparent text-stroke block mb-4 italic" style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">04</span>
-                    <h3 class="text-xl font-bold uppercase italic mb-3 text-white">Entrega</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed">Receba a planilha com os vídeos. Comece a treinar com suporte direto via WhatsApp.</p>
+                <div class="bg-zinc-950/50 p-8 rounded-3xl border border-green-500/30">
+                    <span class="num-stroke text-6xl font-black block mb-4 italic">04</span>
+                    <h3 class="text-lg font-bold uppercase italic mb-2 text-white">Todo dia comigo</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Check-in diário no WhatsApp. No fim do mês, reavaliação e série nova.</p>
                 </div>
             </div>
-            
-            <div class="mt-16 text-center">
-                <a href="https://wa.me/5521987708652?text=Felipe, quero começar meu treino estruturado por R$ 80!" 
-                   onclick="return gtag_report_conversion('https://wa.me/5521987708652?text=Felipe, quero começar meu treino estruturado por R$ 80!');"
-                   target="_blank"
-                   class="inline-block border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white text-lg font-black py-4 px-10 rounded-full transition-all duration-300 uppercase italic">
-                    Começar Agora
-                </a>
+        </div>
+    </section>
+
+    <!-- COMPARATIVO -->
+    <section class="py-24 px-6 bg-zinc-950">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-center text-3xl md:text-5xl font-black mb-12 uppercase italic">
+                Faz a <span class="text-gradient">conta</span>
+            </h2>
+            <div class="overflow-x-auto rounded-3xl border border-zinc-800">
+                <table class="w-full text-sm md:text-base">
+                    <thead>
+                        <tr class="bg-zinc-900 text-zinc-400 uppercase text-xs tracking-wider">
+                            <th class="text-left p-4"></th>
+                            <th class="p-4">Treinar sozinho</th>
+                            <th class="p-4">Planilha pronta</th>
+                            <th class="p-4 text-orange-400">Minha consultoria</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800 text-center">
+                        <tr><td class="text-left p-4 text-zinc-300">Treino feito pra você</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-green-400 font-bold">✓</td></tr>
+                        <tr><td class="text-left p-4 text-zinc-300">Série atualizada todo mês</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-green-400 font-bold">✓</td></tr>
+                        <tr><td class="text-left p-4 text-zinc-300">Correção de execução</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-green-400 font-bold">✓</td></tr>
+                        <tr><td class="text-left p-4 text-zinc-300">Alguém cobrando todo dia</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-zinc-600">✕</td><td class="p-4 text-green-400 font-bold">✓</td></tr>
+                        <tr class="bg-zinc-900/50"><td class="text-left p-4 text-zinc-300 font-bold">Preço</td><td class="p-4 text-zinc-500">Grátis, mas sem resultado</td><td class="p-4 text-zinc-500">Paga e fica sozinho</td><td class="p-4 text-white font-black">R$ 80/mês</td></tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="py-24 px-6 bg-zinc-900 border-t border-zinc-800">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-[200px_1fr] gap-10 items-center">
+            <!-- TODO: troque pelo caminho da sua foto, ex.: <img src="/felipe.jpg" ...> -->
+            <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center text-6xl font-black italic shadow-2xl">FF</div>
+            <div class="text-center md:text-left">
+                <span class="text-orange-400 text-xs font-bold uppercase tracking-widest">Quem vai te acompanhar</span>
+                <h2 class="text-3xl md:text-4xl font-black uppercase italic mt-2 mb-4">Felipe Ferreira</h2>
+                <p class="text-zinc-400 leading-relaxed mb-4">
+                    Profissional de Educação Física registrado no CREF, no Rio de Janeiro. Monto cada série pessoalmente,
+                    com base na sua anamnese e na ciência do treinamento, e acompanho a sua evolução de perto, todos os dias.
+                </p>
+                <!-- TODO: coloque seu número do CREF -->
+                <span class="inline-block bg-zinc-950 border border-zinc-800 px-5 py-2 rounded-full text-xs font-bold tracking-widest text-zinc-300 uppercase">
+                    <span class="text-orange-500 mr-1">✓</span> CREF 000000-G/RJ
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 px-6 bg-zinc-950">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-center text-3xl md:text-5xl font-black mb-12 uppercase italic">
+                Dúvidas <span class="text-gradient">frequentes</span>
+            </h2>
+            <div class="space-y-3">
+                <details class="glass-card rounded-2xl p-6 group">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-white">Como funciona o acompanhamento diário?<span class="seta text-orange-500 text-2xl transition-transform">+</span></summary>
+                    <p class="mt-4 text-zinc-400 leading-relaxed">Depois de cada treino você me manda um check-in rápido no WhatsApp (o que fez, cargas, como se sentiu, e vídeo se tiver dúvida na execução). Eu respondo com os ajustes. Se faltar, eu cobro.</p>
+                </details>
+                <details class="glass-card rounded-2xl p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-white">Como é o pagamento? Tem fidelidade?<span class="seta text-orange-500 text-2xl transition-transform">+</span></summary>
+                    <p class="mt-4 text-zinc-400 leading-relaxed">R$ 80 por mês, pago no Pix. Não tem fidelidade nem cobrança automática: você renova mês a mês e para quando quiser.</p>
+                </details>
+                <details class="glass-card rounded-2xl p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-white">Sou iniciante, serve pra mim?<span class="seta text-orange-500 text-2xl transition-transform">+</span></summary>
+                    <p class="mt-4 text-zinc-400 leading-relaxed">Sim. A série é montada para o seu nível, e os vídeos e o acompanhamento diário existem justamente para você aprender a executar certo desde o começo.</p>
+                </details>
+                <details class="glass-card rounded-2xl p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-white">Posso treinar em casa?<span class="seta text-orange-500 text-2xl transition-transform">+</span></summary>
+                    <p class="mt-4 text-zinc-400 leading-relaxed">Pode. Academia completa, academia de prédio, parque ou em casa sem equipamento: eu monto a série com o que você tem.</p>
+                </details>
+                <details class="glass-card rounded-2xl p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-white">Tenho dor ou lesão. Posso fazer?<span class="seta text-orange-500 text-2xl transition-transform">+</span></summary>
+                    <p class="mt-4 text-zinc-400 leading-relaxed">Informe tudo na anamnese. A série é adaptada às suas limitações e, se houver algum sinal de risco no questionário de saúde, vou pedir liberação médica antes de começarmos.</p>
+                </details>
+                <details class="glass-card rounded-2xl p-6">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-white">Em quanto tempo recebo a série?<span class="seta text-orange-500 text-2xl transition-transform">+</span></summary>
+                    <p class="mt-4 text-zinc-400 leading-relaxed">Assim que você envia a anamnese eu começo a montar. Você recebe a série no WhatsApp, com os vídeos, em poucos dias.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-24 px-6 bg-zinc-900 border-t border-zinc-800 text-center">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-black uppercase italic mb-6">Bora começar <span class="text-gradient">hoje?</span></h2>
+            <p class="text-zinc-400 mb-10">R$ 80/mês · série nova todo mês · acompanhamento diário · sem fidelidade</p>
+            <a href="#" onclick="return abrirWhats('Oi Felipe! Quero garantir minha vaga na consultoria mensal de R$ 80.');"
+               class="inline-flex items-center justify-center bg-green-500 hover:bg-green-400 text-zinc-950 text-xl font-black py-5 px-12 rounded-2xl shadow-[0_0_40px_rgba(34,197,94,0.4)] transition-all hover:scale-105 uppercase italic">
+                Garantir minha vaga
+            </a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-zinc-950 py-16 px-6 border-t border-white/5 text-center relative">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-2xl font-black italic uppercase text-white mb-6 tracking-wide">Felipe Ferreira</h3>
-            
-            <div class="inline-block bg-zinc-900 border border-zinc-800 px-8 py-3 rounded-full text-xs font-bold mb-10 shadow-lg tracking-widest text-zinc-300 uppercase">
-                <span class="text-orange-500 mr-2">✓</span> 
-            </div>
-            
-            <p class="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.15em] leading-relaxed font-medium">
-                © 2026 Rio de Janeiro - RJ | Consultoria Online <br>
-                <span class="opacity-60 font-normal mt-4 block normal-case italic">Consulte um médico antes de iniciar atividades físicas intensas.</span>
-            </p>
-        </div>
+    <footer class="bg-zinc-950 py-12 px-6 border-t border-white/5 text-center pb-28">
+        <h3 class="text-xl font-black italic uppercase text-white mb-2">Felipe Ferreira</h3>
+        <p class="text-zinc-500 text-xs uppercase tracking-widest mb-6">Consultoria Online · Rio de Janeiro - RJ</p>
+        <a href="/anamnese/" class="text-orange-400 hover:text-orange-300 text-sm font-bold underline underline-offset-4">Já é aluno? Preencha sua anamnese</a>
+        <p class="text-zinc-600 text-[11px] mt-8 italic">© 2026 · Consulte um médico antes de iniciar atividades físicas intensas.</p>
     </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="#" onclick="return abrirWhats('Oi Felipe! Vim pelo site e quero saber mais sobre a consultoria mensal.');"
+       aria-label="Falar no WhatsApp"
+       class="fixed bottom-5 right-5 z-50 w-16 h-16 rounded-full bg-green-500 hover:bg-green-400 shadow-[0_0_30px_rgba(34,197,94,0.5)] flex items-center justify-center transition-transform hover:scale-110">
+        <svg class="w-8 h-8 text-zinc-950" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
 </body>
 </html>

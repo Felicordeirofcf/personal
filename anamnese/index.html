@@ -3,106 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anamnese Oficial | Felipe Ferreira</title>
+    <title>Anamnese | Consultoria Felipe Ferreira</title>
+    <meta name="robots" content="noindex">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Montserrat', 'sans-serif'] } } } }</script>
     <style>
         body { background-color: #09090b; }
-        .input-field { 
-            background-color: #18181b; 
-            border: 1px solid #27272a; 
-            color: white;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
-            margin-top: 4px;
+        .input-field {
+            background-color: #18181b; border: 1px solid #27272a; color: white;
+            padding: 12px; border-radius: 8px; width: 100%; margin-top: 4px;
         }
-        .input-field:focus { border-color: #eab308; outline: none; }
+        .input-field:focus { border-color: #f97316; outline: none; }
+        .lbl { font-size: .75rem; font-weight: 700; text-transform: uppercase; color: #a1a1aa; }
+        .opt { padding: .75rem; text-align: center; border-radius: .5rem; border: 1px solid #27272a; background: #27272a; font-size: .8rem; font-weight: 700; transition: all .15s; }
+        .peer:checked + .opt { border-color: #f97316; background: rgba(249,115,22,.12); }
     </style>
 </head>
-<body class="text-zinc-100 p-6">
+<body class="text-zinc-100 p-4 md:p-6 font-sans">
 
-    <div class="max-w-2xl mx-auto bg-zinc-900/50 p-8 rounded-3xl border border-zinc-800 shadow-2xl">
+    <div class="max-w-2xl mx-auto bg-zinc-900/50 p-6 md:p-8 rounded-3xl border border-zinc-800 shadow-2xl">
         <header class="text-center mb-10">
-            <span class="text-yellow-500 font-black text-xs uppercase tracking-widest italic">Etapa Final</span>
-            <h1 class="text-3xl font-black italic uppercase mt-2">Sua Ficha de Treino</h1>
-            <p class="text-zinc-400 text-sm mt-2">Responda rápido para eu começar sua periodização.</p>
+            <span class="text-orange-500 font-black text-xs uppercase tracking-widest italic">Consultoria mensal</span>
+            <h1 class="text-3xl font-black italic uppercase mt-2">Sua Anamnese</h1>
+            <p class="text-zinc-400 text-sm mt-2">Leva uns 3 minutos. Quanto mais detalhe, melhor fica sua série.</p>
         </header>
 
-        <form id="anamneseForm" class="space-y-6">
-            <div>
-                <label class="text-xs font-bold uppercase text-zinc-500">Seu Nome Completo</label>
-                <input type="text" id="nome" required class="input-field" placeholder="Ex: Felipe Cordeiro">
-            </div>
+        <form id="anamneseForm" class="space-y-8">
 
-            <div>
-                <label class="text-xs font-bold uppercase text-zinc-500">Qual seu objetivo principal?</label>
-                <select id="objetivo" class="input-field">
-                    <option value="Hipertrofia (Ganho de Massa)">Hipertrofia (Ganho de Massa)</option>
-                    <option value="Emagrecimento / Definição">Emagrecimento / Definição</option>
-                    <option value="Condicionamento Físico">Condicionamento Físico / Saúde</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="text-xs font-bold uppercase text-zinc-500">Nível de experiência</label>
-                <div class="grid grid-cols-2 gap-2 mt-2">
-                    <label class="cursor-pointer">
-                        <input type="radio" name="nivel" value="Iniciante" class="hidden peer" checked>
-                        <div class="p-3 text-center rounded-lg border border-zinc-800 bg-zinc-800 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 transition-all text-sm font-bold">INICIANTE</div>
-                    </label>
-                    <label class="cursor-pointer">
-                        <input type="radio" name="nivel" value="Intermediário/Avançado" class="hidden peer">
-                        <div class="p-3 text-center rounded-lg border border-zinc-800 bg-zinc-800 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 transition-all text-sm font-bold">AVANÇADO</div>
-                    </label>
+            <fieldset class="space-y-4">
+                <legend class="text-orange-400 font-black uppercase italic mb-2">1. Sobre você</legend>
+                <div>
+                    <label class="lbl" for="nome">Nome completo</label>
+                    <input type="text" id="nome" required class="input-field" placeholder="Seu nome">
                 </div>
-            </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="lbl" for="idade">Idade</label>
+                        <input type="number" id="idade" min="12" max="100" required class="input-field" placeholder="Ex: 28">
+                    </div>
+                    <div>
+                        <label class="lbl" for="sexo">Sexo</label>
+                        <select id="sexo" class="input-field">
+                            <option>Feminino</option>
+                            <option>Masculino</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="lbl" for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" step="0.1" min="20" max="300" required class="input-field" placeholder="Ex: 72">
+                    </div>
+                    <div>
+                        <label class="lbl" for="altura">Altura (cm)</label>
+                        <input type="number" id="altura" min="100" max="230" required class="input-field" placeholder="Ex: 170">
+                    </div>
+                </div>
+                <div>
+                    <label class="lbl" for="profissao">Profissão / rotina</label>
+                    <input type="text" id="profissao" class="input-field" placeholder="Ex: trabalho sentado 8h por dia">
+                </div>
+            </fieldset>
 
-            <div>
-                <label class="text-xs font-bold uppercase text-zinc-500">Onde você vai treinar?</label>
-                <select id="local" class="input-field">
-                    <option value="Academia Completa">Academia Completa</option>
-                    <option value="Em Casa (Sem Equipamento)">Em Casa (Sem Equipamento)</option>
-                    <option value="Prédio / Parque (Equipamento Limitado)">Prédio / Parque</option>
-                </select>
-            </div>
+            <fieldset class="space-y-4">
+                <legend class="text-orange-400 font-black uppercase italic mb-2">2. Objetivo e treino</legend>
+                <div>
+                    <label class="lbl" for="objetivo">Objetivo principal</label>
+                    <select id="objetivo" class="input-field">
+                        <option>Hipertrofia (ganho de massa)</option>
+                        <option>Emagrecimento / definição</option>
+                        <option>Condicionamento físico / saúde</option>
+                        <option>Força</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="lbl">Nível de experiência</span>
+                    <div class="grid grid-cols-3 gap-2 mt-2">
+                        <label class="cursor-pointer"><input type="radio" name="nivel" value="Iniciante (nunca treinou ou parado há muito tempo)" class="hidden peer" checked><div class="opt">INICIANTE</div></label>
+                        <label class="cursor-pointer"><input type="radio" name="nivel" value="Intermediário (treina há 6 meses a 2 anos)" class="hidden peer"><div class="opt">INTERMEDIÁRIO</div></label>
+                        <label class="cursor-pointer"><input type="radio" name="nivel" value="Avançado (treina há mais de 2 anos)" class="hidden peer"><div class="opt">AVANÇADO</div></label>
+                    </div>
+                </div>
+                <div>
+                    <label class="lbl" for="local">Onde vai treinar?</label>
+                    <select id="local" class="input-field">
+                        <option>Academia completa</option>
+                        <option>Academia de prédio / condomínio</option>
+                        <option>Em casa (sem equipamento)</option>
+                        <option>Em casa (com halteres / elásticos)</option>
+                        <option>Parque / ao ar livre</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="lbl" for="dias">Dias por semana</label>
+                        <input type="number" id="dias" min="1" max="7" required class="input-field" placeholder="Ex: 4">
+                    </div>
+                    <div>
+                        <label class="lbl" for="tempo">Tempo por treino</label>
+                        <select id="tempo" class="input-field">
+                            <option>30 min</option>
+                            <option>45 min</option>
+                            <option selected>1 hora</option>
+                            <option>Mais de 1 hora</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="lbl" for="horario">Horário que costuma treinar</label>
+                    <select id="horario" class="input-field">
+                        <option>Manhã</option>
+                        <option>Tarde</option>
+                        <option>Noite</option>
+                        <option>Varia</option>
+                    </select>
+                </div>
+            </fieldset>
 
-            <div>
-                <label class="text-xs font-bold uppercase text-zinc-500">Quantos dias por semana?</label>
-                <input type="number" id="dias" min="1" max="7" class="input-field" placeholder="Ex: 4">
-            </div>
+            <fieldset class="space-y-4">
+                <legend class="text-orange-400 font-black uppercase italic mb-1">3. Saúde (PAR-Q)</legend>
+                <p class="text-zinc-500 text-xs -mt-1">Questionário padrão de prontidão para atividade física. Responda com sinceridade.</p>
+                <div id="parq" class="space-y-3"></div>
+                <div>
+                    <label class="lbl" for="lesao">Dores, lesões ou cirurgias</label>
+                    <textarea id="lesao" class="input-field" rows="3" placeholder="Ex: dor no joelho direito, hérnia de disco L5..."></textarea>
+                </div>
+                <div>
+                    <label class="lbl" for="remedios">Medicamentos de uso contínuo</label>
+                    <input type="text" id="remedios" class="input-field" placeholder="Se não usa, deixe em branco">
+                </div>
+            </fieldset>
 
-            <div>
-                <label class="text-xs font-bold uppercase text-zinc-500">Possui alguma dor ou lesão?</label>
-                <textarea id="lesao" class="input-field" rows="3" placeholder="Ex: Dor no joelho direito, hérnia de disco..."></textarea>
-            </div>
+            <fieldset class="space-y-4">
+                <legend class="text-orange-400 font-black uppercase italic mb-2">4. Algo mais?</legend>
+                <textarea id="obs" class="input-field" rows="3" placeholder="Exercícios que gosta ou odeia, músculo que quer priorizar, alimentação..."></textarea>
+            </fieldset>
 
-            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black py-4 rounded-xl uppercase italic transition-all shadow-lg shadow-yellow-500/20">
-                Enviar para o Personal 🚀
+            <label class="flex gap-3 items-start text-sm text-zinc-400 cursor-pointer">
+                <input type="checkbox" id="declaro" required class="mt-1 accent-orange-500 w-4 h-4">
+                Declaro que as informações acima são verdadeiras e que procurarei liberação médica caso alguma resposta de saúde seja "sim".
+            </label>
+
+            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-400 text-black font-black py-4 rounded-xl uppercase italic transition-all shadow-lg shadow-orange-500/20">
+                Enviar para o Felipe 🚀
             </button>
         </form>
     </div>
 
     <script>
-        document.getElementById('anamneseForm').addEventListener('submit', function(e) {
+        var WHATSAPP = '5521987708652';
+
+        var PARQ = [
+            'Algum médico já disse que você possui algum problema de coração e que só deveria fazer atividade física supervisionada?',
+            'Você sente dores no peito quando pratica atividade física?',
+            'No último mês, você sentiu dores no peito mesmo sem praticar atividade física?',
+            'Você perde o equilíbrio por tontura ou já perdeu a consciência?',
+            'Você tem algum problema ósseo ou articular que pode piorar com atividade física?',
+            'Você toma atualmente algum remédio para pressão arterial ou problema de coração?',
+            'Existe alguma outra razão pela qual você não deveria praticar atividade física?'
+        ];
+
+        var box = document.getElementById('parq');
+        PARQ.forEach(function (pergunta, i) {
+            box.insertAdjacentHTML('beforeend',
+                '<div class="bg-zinc-950/60 border border-zinc-800 rounded-xl p-4">' +
+                  '<p class="text-sm text-zinc-200 mb-3">' + (i + 1) + '. ' + pergunta + '</p>' +
+                  '<div class="grid grid-cols-2 gap-2">' +
+                    '<label class="cursor-pointer"><input type="radio" name="parq' + i + '" value="Não" class="hidden peer" required><div class="opt">NÃO</div></label>' +
+                    '<label class="cursor-pointer"><input type="radio" name="parq' + i + '" value="Sim" class="hidden peer"><div class="opt">SIM</div></label>' +
+                  '</div>' +
+                '</div>');
+        });
+
+        function v(id) { return document.getElementById(id).value.trim(); }
+
+        document.getElementById('anamneseForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            const nome = document.getElementById('nome').value;
-            const objetivo = document.getElementById('objetivo').value;
-            const nivel = document.querySelector('input[name="nivel"]:checked').value;
-            const local = document.getElementById('local').value;
-            const dias = document.getElementById('dias').value;
-            const lesao = document.getElementById('lesao').value || "Nenhuma";
 
-            const mensagem = `*NOVA ANAMNESE - TREINO PRO*%0A%0A` +
-                             `*Nome:* ${nome}%0A` +
-                             `*Objetivo:* ${objetivo}%0A` +
-                             `*Nível:* ${nivel}%0A` +
-                             `*Local:* ${local}%0A` +
-                             `*Frequência:* ${dias}x na semana%0A` +
-                             `*Lesões/Dores:* ${lesao}`;
+            var simParq = [];
+            PARQ.forEach(function (p, i) {
+                var r = document.querySelector('input[name="parq' + i + '"]:checked');
+                if (r && r.value === 'Sim') simParq.push((i + 1) + '. ' + p);
+            });
 
-            const fone = "5521987708652";
-            window.location.href = `https://wa.me/${fone}?text=${mensagem}`;
+            var linhas = [
+                '*NOVA ANAMNESE - CONSULTORIA MENSAL*',
+                '',
+                '*Nome:* ' + v('nome'),
+                '*Idade:* ' + v('idade') + ' | *Sexo:* ' + v('sexo'),
+                '*Peso:* ' + v('peso') + ' kg | *Altura:* ' + v('altura') + ' cm',
+                '*Rotina:* ' + (v('profissao') || '-'),
+                '',
+                '*Objetivo:* ' + v('objetivo'),
+                '*Nível:* ' + document.querySelector('input[name="nivel"]:checked').value,
+                '*Local:* ' + v('local'),
+                '*Frequência:* ' + v('dias') + 'x/semana, ' + v('tempo') + ' por treino (' + v('horario') + ')',
+                '',
+                '*PAR-Q:* ' + (simParq.length ? '⚠️ ' + simParq.length + ' resposta(s) SIM, pedir liberação médica' : 'todas NÃO ✅')
+            ];
+            simParq.forEach(function (s) { linhas.push('   - ' + s); });
+            linhas.push(
+                '*Lesões/dores:* ' + (v('lesao') || 'Nenhuma'),
+                '*Medicamentos:* ' + (v('remedios') || 'Nenhum'),
+                '*Observações:* ' + (v('obs') || '-')
+            );
+
+            window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(linhas.join('\n'));
         });
     </script>
 </body>

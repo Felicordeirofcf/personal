@@ -27,8 +27,23 @@
         // Rótulo da conversão do Google Ads (Google Ads > Metas > Conversões).
         // Formato: 'AW-18020498759/AbCdEfGhIjk'. Enquanto vazio, o clique só abre o WhatsApp.
         adsConversao: '',
+        // ID do Pixel do Meta (Gerenciador de Eventos > Fontes de dados). Ex.: '1234567890123456'. Vazio = desligado.
+        metaPixel: '',
         valor: 80.0
       };
+    </script>
+
+    <!-- Meta Pixel (só carrega se CONFIG.metaPixel estiver preenchido) -->
+    <script>
+      if (CONFIG.metaPixel) {
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', CONFIG.metaPixel);
+        fbq('track', 'PageView');
+      }
     </script>
 
     <!-- Google Ads -->
@@ -54,6 +69,7 @@
             });
           }
           gtag('event', 'generate_lead', { value: CONFIG.valor, currency: 'BRL' });
+          if (window.fbq) fbq('track', 'Contact', { value: CONFIG.valor, currency: 'BRL' });
         } catch (e) {}
         setTimeout(ir, CONFIG.adsConversao ? 800 : 0);
         return false;
@@ -135,6 +151,201 @@
             </div>
         </div>
     </header>
+
+    <!-- ANIMAÇÃO: ACOMPANHAMENTO -->
+    <section class="py-20 px-6 bg-zinc-950">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-orange-400 text-xs font-bold uppercase tracking-widest">Na prática</span>
+            <h2 class="text-3xl md:text-5xl font-black uppercase italic mt-2 mb-4">Eu do seu lado <span class="text-gradient">em cada treino</span></h2>
+            <p class="text-zinc-400 mb-10 max-w-2xl mx-auto">Você treina, manda o check-in e eu corrijo a execução e ajusto a carga. Todos os dias.</p>
+            <div class="rounded-[28px] overflow-hidden shadow-2xl border border-white/5">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" class="w-full h-auto" role="img" aria-label="Animação: Felipe acompanhando uma aluna no agachamento e na rosca direta">
+  <defs>
+    <linearGradient id="ta-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c20"/>
+      <stop offset="1" stop-color="#0b0b0d"/>
+    </linearGradient>
+    <radialGradient id="ta-glow" cx=".5" cy=".55" r=".6">
+      <stop offset="0" stop-color="#f97316" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="ta-cab"><circle cx="470" cy="98" r="36"/></clipPath>
+    <g id="ta-halter">
+      <rect x="-14" y="-3" width="28" height="6" rx="3" fill="#a1a1aa"/>
+      <rect x="-20" y="-10" width="9" height="20" rx="3" fill="#3f3f46"/>
+      <rect x="11" y="-10" width="9" height="20" rx="3" fill="#3f3f46"/>
+    </g>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="640" height="360" rx="28" fill="url(#ta-bg)"/>
+  <rect width="640" height="360" rx="28" fill="url(#ta-glow)"/>
+  <!-- Espelho / parede -->
+  <rect x="40" y="40" width="300" height="200" rx="10" fill="#ffffff" opacity=".03"/>
+  <line x1="70" y1="40" x2="40" y2="110" stroke="#fff" stroke-opacity=".05" stroke-width="10"/>
+  <line x1="130" y1="40" x2="70" y2="180" stroke="#fff" stroke-opacity=".04" stroke-width="6"/>
+  <!-- Chão -->
+  <rect x="0" y="306" width="640" height="54" fill="#09090b"/>
+  <line x1="0" y1="306" x2="640" y2="306" stroke="#27272a" stroke-width="3"/>
+  <!-- Halteres no chão -->
+  <use href="#ta-halter" transform="translate(90 296) scale(1.3)"/>
+  <use href="#ta-halter" transform="translate(130 296) scale(1.3)"/>
+  <!-- Sombras -->
+  <ellipse cx="252" cy="309" rx="52" ry="6" fill="#000" opacity=".5"/>
+  <ellipse cx="470" cy="309" rx="44" ry="6" fill="#000" opacity=".5"/>
+
+
+  <!-- Balão de fala do personal -->
+  <g>
+    <rect x="336" y="18" width="188" height="40" rx="20" fill="#fafafa"/>
+    <path d="M440 56 L456 74 L462 56 Z" fill="#fafafa"/>
+  </g>
+
+  <!-- ===================== CENA 1: AGACHAMENTO ===================== -->
+  <g opacity="1">
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.47;.5;.97;1" dur="14.4s" repeatCount="indefinite"/>
+
+    <g stroke-linecap="round" fill="none">
+      <!-- Pé -->
+      <line x1="250" y1="304" x2="276" y2="306" stroke="#f4f4f5" stroke-width="10"/>
+      <!-- Canela -->
+      <line x1="250" y1="302" x2="252" y2="255" stroke="#27272a" stroke-width="20">
+        <animate attributeName="x2" values="252;270;252" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="255;258;255" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      </line>
+      <!-- Coxa -->
+      <line x1="250" y1="205" x2="252" y2="255" stroke="#27272a" stroke-width="24">
+        <animate attributeName="x1" values="250;212;250" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="y1" values="205;250;205" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="252;270;252" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="255;258;255" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      </line>
+      <!-- Tronco (top laranja) -->
+      <line x1="250" y1="200" x2="250" y2="135" stroke="#f97316" stroke-width="32">
+        <animate attributeName="x1" values="250;214;250" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="y1" values="200;245;200" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="250;240;250" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="135;180;135" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      </line>
+      <!-- Braço -->
+      <polyline points="250,140 262,168 274,150" stroke="#c68b63" stroke-width="12" stroke-linejoin="round">
+        <animate attributeName="points" values="250,140 262,168 274,150;240,185 256,212 266,194;250,140 262,168 274,150" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      </polyline>
+    </g>
+    <!-- Halter na mão -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-8 44;0 0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      <use href="#ta-halter" transform="translate(276 146) rotate(90)"/>
+    </g>
+    <!-- Cabeça + rabo de cavalo -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-10 45;0 0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      <path d="M236 98 C220 104 218 124 226 136 C228 122 232 112 240 106 Z" fill="#2a1a12"/>
+      <circle cx="252" cy="106" r="20" fill="#c68b63"/>
+      <path d="M232 104 C232 88 244 82 254 84 C266 86 273 96 272 106 C262 98 246 96 232 104 Z" fill="#2a1a12"/>
+      <circle cx="262" cy="108" r="2.4" fill="#18100b"/>
+      <path d="M258 116 C262 119 266 118 268 115" stroke="#7a3a2c" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- Rótulo -->
+    <g>
+      <rect x="40" y="266" width="150" height="28" rx="14" fill="#f97316"/>
+      <text x="115" y="285" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-style="italic" font-size="13" fill="#fff">AGACHAMENTO</text>
+    </g>
+    <!-- Falas do personal -->
+    <g font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="15" fill="#18181b" text-anchor="middle">
+      <text x="430" y="44" opacity="1">Desce mais!
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.45;.5;1" dur="4.8s" repeatCount="indefinite"/>
+      </text>
+      <text x="430" y="44" opacity="0">Isso! Peito aberto!
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.55;.95;1" dur="4.8s" repeatCount="indefinite"/>
+      </text>
+    </g>
+  </g>
+
+  <!-- ===================== CENA 2: ROSCA DIRETA ===================== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.47;.5;.97;1" dur="14.4s" repeatCount="indefinite"/>
+
+    <g stroke-linecap="round" fill="none">
+      <line x1="250" y1="304" x2="276" y2="306" stroke="#f4f4f5" stroke-width="10"/>
+      <line x1="250" y1="302" x2="250" y2="255" stroke="#27272a" stroke-width="20"/>
+      <line x1="250" y1="205" x2="250" y2="255" stroke="#27272a" stroke-width="24"/>
+      <line x1="250" y1="200" x2="250" y2="135" stroke="#f97316" stroke-width="32"/>
+      <!-- Braço: cotovelo parado, antebraço sobe -->
+      <polyline points="250,140 254,186 256,230" stroke="#c68b63" stroke-width="12" stroke-linejoin="round">
+        <animate attributeName="points" values="250,140 254,186 256,230;250,140 254,186 276,148;250,140 254,186 256,230" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      </polyline>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;20 -82;0 0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.4s" repeatCount="indefinite"/>
+      <use href="#ta-halter" transform="translate(258 234)"/>
+    </g>
+    <g>
+      <path d="M236 98 C220 104 218 124 226 136 C228 122 232 112 240 106 Z" fill="#2a1a12"/>
+      <circle cx="252" cy="106" r="20" fill="#c68b63"/>
+      <path d="M232 104 C232 88 244 82 254 84 C266 86 273 96 272 106 C262 98 246 96 232 104 Z" fill="#2a1a12"/>
+      <circle cx="262" cy="108" r="2.4" fill="#18100b"/>
+      <path d="M258 116 C262 119 266 118 268 115" stroke="#7a3a2c" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <g>
+      <rect x="40" y="266" width="150" height="28" rx="14" fill="#f97316"/>
+      <text x="115" y="285" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-style="italic" font-size="13" fill="#fff">ROSCA DIRETA</text>
+    </g>
+    <g font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="15" fill="#18181b" text-anchor="middle">
+      <text x="430" y="44" opacity="1">Cotovelo parado!
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.45;.5;1" dur="4.8s" repeatCount="indefinite"/>
+      </text>
+      <text x="430" y="44" opacity="0">Boa! Mais 3!
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.55;.95;1" dur="4.8s" repeatCount="indefinite"/>
+      </text>
+    </g>
+  </g>
+
+  <!-- ===================== PERSONAL (Felipe) ===================== -->
+
+  <g stroke-linecap="round" fill="none">
+    <!-- Pernas -->
+    <line x1="462" y1="215" x2="456" y2="302" stroke="#18181b" stroke-width="20"/>
+    <line x1="478" y1="215" x2="486" y2="302" stroke="#18181b" stroke-width="20"/>
+    <line x1="446" y1="305" x2="460" y2="305" stroke="#f4f4f5" stroke-width="10"/>
+    <line x1="484" y1="305" x2="500" y2="305" stroke="#f4f4f5" stroke-width="10"/>
+    <!-- Tronco (camiseta preta) -->
+    <line x1="470" y1="212" x2="470" y2="146" stroke="#0c0c0e" stroke-width="40"/>
+    <!-- Braço com celular -->
+    <polyline points="486,150 500,192 510,168" stroke="#9b6342" stroke-width="12" stroke-linejoin="round"/>
+    <!-- Braço apontando para a aluna -->
+    <polyline points="454,150 432,178 410,166" stroke="#9b6342" stroke-width="12" stroke-linejoin="round">
+      <animate attributeName="points" values="454,150 432,178 410,166;454,150 430,174 406,156;454,150 432,178 410,166" dur="1.2s" repeatCount="indefinite"/>
+    </polyline>
+  </g>
+  <!-- Logo na camiseta -->
+  <text x="470" y="186" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="8" fill="#e4e4e7" letter-spacing=".5">PERSONAL</text>
+  <!-- Celular -->
+  <rect x="504" y="150" width="14" height="24" rx="3" fill="#27272a" stroke="#52525b" stroke-width="1.5"/>
+  <rect x="506.5" y="153" width="9" height="16" rx="1.5" fill="#22c55e">
+    <animate attributeName="opacity" values=".4;1;.4" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Cabeça: avatar -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="-3 470 120;3 470 120;-3 470 120" dur="2.4s" repeatCount="indefinite"/>
+    <image href="/avatar.svg" x="434" y="62" width="72" height="72" clip-path="url(#ta-cab)"/>
+    <circle cx="470" cy="98" r="36" fill="none" stroke="#f97316" stroke-width="2"/>
+  </g>
+
+  <!-- Notificação de check-in -->
+  <g>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.15;.2;.42;.47;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0;0 0;0 -6;0 -6" keyTimes="0;.15;.2;.42;.47;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect x="452" y="226" width="168" height="40" rx="12" fill="#18181b" stroke="#22c55e" stroke-opacity=".6"/>
+    <circle cx="472" cy="246" r="10" fill="#22c55e"/>
+    <path d="M467 246 L471 250 L478 242" stroke="#0b0b0d" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="488" y="243" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="10.5" fill="#fff">Check-in recebido</text>
+    <text x="488" y="257" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="9" fill="#a1a1aa">Treino de hoje feito</text>
+  </g>
+</svg>
+            </div>
+        </div>
+    </section>
 
     <!-- O QUE ESTÁ INCLUSO -->
     <section class="py-24 px-6 bg-zinc-950">

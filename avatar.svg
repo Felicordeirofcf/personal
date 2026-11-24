@@ -1,86 +1,147 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Avatar ilustrado de Felipe Ferreira">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#fb923c"/>
-      <stop offset="1" stop-color="#c2410c"/>
+      <stop offset="0" stop-color="#fdba74"/>
+      <stop offset=".45" stop-color="#f97316"/>
+      <stop offset="1" stop-color="#9a3412"/>
+    </linearGradient>
+    <radialGradient id="pele" cx=".42" cy=".35" r=".75">
+      <stop offset="0" stop-color="#c08560"/>
+      <stop offset=".6" stop-color="#a96f4a"/>
+      <stop offset="1" stop-color="#8e5838"/>
+    </radialGradient>
+    <linearGradient id="pescoco" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6e4129"/>
+      <stop offset=".5" stop-color="#93603f"/>
+    </linearGradient>
+    <linearGradient id="camisa" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0c0c0e"/>
+      <stop offset=".5" stop-color="#232327"/>
+      <stop offset="1" stop-color="#0c0c0e"/>
+    </linearGradient>
+    <linearGradient id="barba" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1c14"/>
+      <stop offset="1" stop-color="#140d09"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a110c" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#1f150f" stop-opacity=".92"/>
     </linearGradient>
     <clipPath id="circ"><circle cx="200" cy="200" r="200"/></clipPath>
+    <clipPath id="rosto">
+      <path d="M128 150 C128 104 160 84 200 84 C240 84 272 104 272 150 L272 196 C272 252 240 288 200 288 C160 288 128 252 128 196 Z"/>
+    </clipPath>
   </defs>
 
   <g clip-path="url(#circ)">
     <rect width="400" height="400" fill="url(#bg)"/>
-    <circle cx="200" cy="170" r="150" fill="#ffffff" opacity="0.08"/>
+    <circle cx="200" cy="185" r="160" fill="#fff" opacity=".07"/>
+    <circle cx="200" cy="185" r="120" fill="#fff" opacity=".06"/>
 
-    <!-- Tronco / camiseta preta -->
-    <path d="M40 400 C48 330 100 300 150 292 L250 292 C300 300 352 330 360 400 Z" fill="#18181b"/>
+    <!-- Camiseta -->
+    <path d="M18 400 C26 334 84 306 150 296 L250 296 C316 306 374 334 382 400 Z" fill="url(#camisa)"/>
+    <path d="M70 340 C90 330 110 324 130 320" stroke="#2f2f35" stroke-width="3" fill="none" opacity=".7"/>
+    <path d="M330 340 C310 330 290 324 270 320" stroke="#2f2f35" stroke-width="3" fill="none" opacity=".7"/>
+
     <!-- Pescoço -->
-    <path d="M168 250 L232 250 L238 300 C220 318 180 318 162 300 Z" fill="#8a5636"/>
+    <path d="M164 262 L236 262 L242 304 L200 344 L158 304 Z" fill="url(#pescoco)"/>
     <!-- Gola V -->
-    <path d="M150 292 L200 340 L250 292 L238 292 L200 326 L162 292 Z" fill="#27272a"/>
-    <path d="M162 292 L200 326 L238 292 C232 300 216 314 200 318 C184 314 168 300 162 292 Z" fill="#7a4a2e"/>
+    <path d="M148 296 L200 350 L252 296 L242 296 L200 338 L158 296 Z" fill="#2e2e33"/>
+
     <!-- Logo da camiseta -->
-    <g transform="translate(92 352) rotate(-4)">
-      <path d="M22 -16 C26 -24 36 -24 40 -16 C34 -19 28 -19 22 -16 Z" fill="#e4e4e7"/>
-      <text x="0" y="6" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="19" fill="#e4e4e7" letter-spacing="1">PERSONAL</text>
-      <text x="40" y="17" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="6.5" fill="#a1a1aa" letter-spacing="2">TRAINER</text>
+    <g transform="translate(82 360) rotate(-5)" fill="#e4e4e7">
+      <path d="M30 -20 C34 -29 46 -29 50 -20 C44 -23 36 -23 30 -20 Z"/>
+      <path d="M40 -24 L40 -14" stroke="#e4e4e7" stroke-width="1.5"/>
+      <text x="0" y="4" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="21" letter-spacing="1">PERSONAL</text>
+      <text x="44" y="16" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="7" fill="#a1a1aa" letter-spacing="2.5">TRAINER</text>
     </g>
 
     <!-- Orelhas -->
-    <ellipse cx="128" cy="190" rx="14" ry="22" fill="#9a6340"/>
-    <ellipse cx="272" cy="190" rx="14" ry="22" fill="#9a6340"/>
-    <ellipse cx="130" cy="191" rx="6" ry="12" fill="#7a4a2e"/>
-    <ellipse cx="270" cy="191" rx="6" ry="12" fill="#7a4a2e"/>
+    <g>
+      <path d="M130 172 C114 168 110 190 116 206 C120 218 128 222 134 220 Z" fill="#9b6342"/>
+      <path d="M128 182 C120 182 120 198 126 208" stroke="#74462c" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M270 172 C286 168 290 190 284 206 C280 218 272 222 266 220 Z" fill="#8e5838"/>
+      <path d="M272 182 C280 182 280 198 274 208" stroke="#6a3f27" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
 
     <!-- Rosto -->
-    <path d="M138 140 C138 100 165 84 200 84 C235 84 262 100 262 140 L262 205 C262 258 232 284 200 284 C168 284 138 258 138 205 Z" fill="#a86d48"/>
-    <!-- Sombra lateral -->
-    <path d="M240 110 C258 122 262 140 262 160 L262 205 C262 240 248 262 230 274 C246 244 250 200 246 160 C244 138 242 122 240 110 Z" fill="#94603d" opacity="0.7"/>
+    <path d="M128 150 C128 104 160 84 200 84 C240 84 272 104 272 150 L272 196 C272 252 240 288 200 288 C160 288 128 252 128 196 Z" fill="url(#pele)"/>
 
-    <!-- Cabelo: degradê nas laterais -->
-    <path d="M138 175 C134 140 140 112 156 98 L160 150 C150 156 144 164 142 178 Z" fill="#2a1d16" opacity="0.85"/>
-    <path d="M262 175 C266 140 260 112 244 98 L240 150 C250 156 256 164 258 178 Z" fill="#2a1d16" opacity="0.85"/>
-    <!-- Cabelo crespo no topo -->
-    <g fill="#1c130e">
-      <path d="M144 128 C138 96 150 66 178 56 C196 48 214 48 230 56 C254 66 264 92 258 128 C246 116 226 110 200 110 C174 110 154 116 144 128 Z"/>
-      <circle cx="154" cy="96" r="15"/><circle cx="170" cy="74" r="17"/><circle cx="192" cy="62" r="18"/>
-      <circle cx="215" cy="62" r="18"/><circle cx="236" cy="74" r="17"/><circle cx="250" cy="96" r="15"/>
-      <circle cx="160" cy="114" r="11"/><circle cx="244" cy="114" r="11"/>
-      <circle cx="182" cy="84" r="14"/><circle cx="204" cy="80" r="15"/><circle cx="226" cy="86" r="14"/>
+    <g clip-path="url(#rosto)">
+      <!-- Brilho na testa e bochecha -->
+      <ellipse cx="182" cy="136" rx="30" ry="10" fill="#d49a73" opacity=".35"/>
+      <ellipse cx="160" cy="200" rx="14" ry="9" fill="#cf8f68" opacity=".35"/>
+
+      <!-- Degradê nas laterais -->
+      <path d="M120 100 L150 104 C143 124 140 150 142 186 L120 186 Z" fill="url(#fade)"/>
+      <path d="M280 100 L250 104 C257 124 260 150 258 186 L280 186 Z" fill="url(#fade)"/>
+
+      <!-- Barba (linha da bochecha marcada) -->
+      <path d="M120 182 L142 182 C146 204 156 220 170 228 C184 222 216 222 230 228 C244 220 254 204 258 182 L280 182 L280 310 L120 310 Z" fill="url(#barba)"/>
+      <!-- Contorno degradê da barba na bochecha -->
+      <path d="M142 182 C146 204 156 220 170 228" stroke="#3a281d" stroke-width="4" fill="none" opacity=".5"/>
+      <path d="M258 182 C254 204 244 220 230 228" stroke="#3a281d" stroke-width="4" fill="none" opacity=".5"/>
     </g>
-    <g fill="#33241b">
-      <circle cx="176" cy="70" r="5"/><circle cx="200" cy="60" r="5"/><circle cx="222" cy="66" r="5"/>
-      <circle cx="160" cy="92" r="4"/><circle cx="242" cy="90" r="4"/><circle cx="190" cy="82" r="4"/><circle cx="214" cy="80" r="4"/>
+
+    <!-- Cabelo crespo curto no topo -->
+    <g fill="#18100b">
+      <path d="M140 122 C136 88 160 64 200 62 C240 64 264 88 260 122 C244 108 222 104 200 104 C178 104 156 108 140 122 Z"/>
+    </g>
+    <g fill="#18100b">
+      <circle cx="150" cy="102" r="11"/><circle cx="160" cy="86" r="12"/><circle cx="174" cy="74" r="12"/>
+      <circle cx="190" cy="67" r="12"/><circle cx="208" cy="66" r="12"/><circle cx="225" cy="71" r="12"/>
+      <circle cx="240" cy="83" r="12"/><circle cx="250" cy="99" r="11"/>
+      <circle cx="146" cy="116" r="8"/><circle cx="254" cy="116" r="8"/>
+    </g>
+    <!-- Textura dos cachos -->
+    <g fill="none" stroke="#3b2a1f" stroke-width="2.2" stroke-linecap="round">
+      <path d="M160 92 a5 5 0 1 1 8 -4"/><path d="M178 80 a5 5 0 1 1 8 -4"/><path d="M196 74 a5 5 0 1 1 8 -4"/>
+      <path d="M214 74 a5 5 0 1 1 8 -4"/><path d="M231 82 a5 5 0 1 1 8 -4"/>
+      <path d="M168 104 a4 4 0 1 1 7 -3"/><path d="M186 94 a4 4 0 1 1 7 -3"/><path d="M204 92 a4 4 0 1 1 7 -3"/>
+      <path d="M222 96 a4 4 0 1 1 7 -3"/><path d="M152 108 a4 4 0 1 1 6 -3"/><path d="M240 106 a4 4 0 1 1 6 -3"/>
     </g>
 
     <!-- Sobrancelhas -->
-    <path d="M154 152 C164 143 182 142 192 148 L190 154 C180 150 166 151 156 157 Z" fill="#1c130e"/>
-    <path d="M246 152 C236 143 218 142 208 148 L210 154 C220 150 234 151 244 157 Z" fill="#1c130e"/>
+    <path d="M150 150 C160 140 178 138 190 144 C191 147 190 150 188 151 C176 147 164 149 152 156 Z" fill="#18100b"/>
+    <path d="M250 150 C240 140 222 138 210 144 C209 147 210 150 212 151 C224 147 236 149 248 156 Z" fill="#18100b"/>
 
-    <!-- Olhos (sorridentes) -->
-    <path d="M160 172 C167 164 181 164 188 172 C181 176 167 176 160 172 Z" fill="#ffffff"/>
-    <path d="M212 172 C219 164 233 164 240 172 C233 176 219 176 212 172 Z" fill="#ffffff"/>
-    <circle cx="175" cy="170" r="5.5" fill="#2a1a12"/>
-    <circle cx="226" cy="170" r="5.5" fill="#2a1a12"/>
-    <circle cx="177" cy="168" r="1.6" fill="#ffffff"/>
-    <circle cx="228" cy="168" r="1.6" fill="#ffffff"/>
-    <path d="M158 172 C166 162 182 162 190 172" fill="none" stroke="#1c130e" stroke-width="3" stroke-linecap="round"/>
-    <path d="M210 172 C218 162 234 162 242 172" fill="none" stroke="#1c130e" stroke-width="3" stroke-linecap="round"/>
-    <path d="M163 180 C170 183 180 183 186 180" fill="none" stroke="#8a5636" stroke-width="2" stroke-linecap="round"/>
-    <path d="M214 180 C220 183 230 183 237 180" fill="none" stroke="#8a5636" stroke-width="2" stroke-linecap="round"/>
+    <!-- Olhos (sorrindo, levemente fechados) -->
+    <g>
+      <path d="M156 170 C163 162 181 161 189 169 C181 174 165 175 156 170 Z" fill="#f4ede6"/>
+      <circle cx="173" cy="168" r="6" fill="#3a2215"/>
+      <circle cx="173" cy="168" r="3" fill="#120a06"/>
+      <circle cx="175.5" cy="166" r="1.7" fill="#fff"/>
+      <path d="M154 171 C162 160 182 159 191 169" stroke="#18100b" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M159 177 C167 180 178 180 186 176" stroke="#7a4a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+      <path d="M244 170 C237 162 219 161 211 169 C219 174 235 175 244 170 Z" fill="#f4ede6"/>
+      <circle cx="227" cy="168" r="6" fill="#3a2215"/>
+      <circle cx="227" cy="168" r="3" fill="#120a06"/>
+      <circle cx="229.5" cy="166" r="1.7" fill="#fff"/>
+      <path d="M246 171 C238 160 218 159 209 169" stroke="#18100b" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M241 177 C233 180 222 180 214 176" stroke="#7a4a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
 
     <!-- Nariz -->
-    <path d="M196 176 L193 204" fill="none" stroke="#8a5636" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M182 206 C186 214 194 216 200 213 C206 216 214 214 218 206 C214 209 208 208 204 206 C201 208 199 208 196 206 C192 208 186 209 182 206 Z" fill="#7a4a2e"/>
-    <ellipse cx="200" cy="203" rx="14" ry="8" fill="#b97a53" opacity="0.6"/>
+    <path d="M197 170 C196 182 193 192 190 198" stroke="#8a5434" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+    <path d="M180 204 C182 194 190 192 194 196 C197 192 203 192 206 196 C210 192 218 194 220 204 C216 212 208 213 204 209 C201 211 199 211 196 209 C192 213 184 212 180 204 Z" fill="#a36945"/>
+    <ellipse cx="190" cy="206" rx="4" ry="2.6" fill="#5a3320"/>
+    <ellipse cx="210" cy="206" rx="4" ry="2.6" fill="#5a3320"/>
+    <ellipse cx="203" cy="198" rx="5" ry="3" fill="#c99069" opacity=".6"/>
 
-    <!-- Barba cheia -->
-    <path d="M138 196 C140 222 146 236 154 246 C160 232 170 226 184 226 L216 226 C230 226 240 232 246 246 C254 236 260 222 262 196 C264 250 238 290 200 292 C162 290 136 250 138 196 Z" fill="#1c130e"/>
     <!-- Bigode -->
-    <path d="M172 226 C180 216 194 216 200 221 C206 216 220 216 228 226 C232 232 226 236 220 232 C212 228 206 228 200 230 C194 228 188 228 180 232 C174 236 168 232 172 226 Z" fill="#1c130e"/>
+    <path d="M166 228 C172 216 188 214 200 219 C212 214 228 216 234 228 C236 234 230 236 224 232 C214 226 206 226 200 228 C194 226 186 226 176 232 C170 236 164 234 166 228 Z" fill="#18100b"/>
+
     <!-- Boca sorrindo -->
-    <path d="M176 238 C186 254 214 254 224 238 C214 242 186 242 176 238 Z" fill="#ffffff"/>
-    <path d="M176 238 C186 256 214 256 224 238" fill="none" stroke="#5a2e1e" stroke-width="2.5" stroke-linecap="round"/>
-    <!-- Cavanhaque / volume do queixo -->
-    <path d="M186 258 C192 262 208 262 214 258 C212 270 206 276 200 276 C194 276 188 270 186 258 Z" fill="#2a1d16"/>
+    <path d="M174 236 C184 258 216 258 226 236 C214 240 186 240 174 236 Z" fill="#5a1f1a"/>
+    <path d="M176 237 C188 241 212 241 224 237 C221 244 212 247 200 247 C188 247 179 244 176 237 Z" fill="#fbfaf7"/>
+    <path d="M186 240 L186 246 M200 241 L200 247 M214 240 L214 246" stroke="#e7e2da" stroke-width="1.2"/>
+    <path d="M186 254 C194 258 206 258 214 254 C208 258 192 258 186 254 Z" fill="#7a3a2c"/>
+
+    <!-- Queixo / cavanhaque -->
+    <path d="M186 262 C194 265 206 265 214 262 C213 273 207 280 200 280 C193 280 187 273 186 262 Z" fill="#0d0805" opacity=".6"/>
+    <!-- Brilho sutil da barba -->
+    <path d="M152 236 C158 254 170 268 186 276" stroke="#3a281d" stroke-width="2" fill="none" opacity=".5"/>
+    <path d="M248 236 C242 254 230 268 214 276" stroke="#3a281d" stroke-width="2" fill="none" opacity=".5"/>
   </g>
 </svg>
